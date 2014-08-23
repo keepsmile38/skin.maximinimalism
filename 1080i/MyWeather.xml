@@ -93,7 +93,7 @@
                         <width>5-col-gutter</width>
                         <height>1-row</height>
                         <align>center</align>
-                        <font>itemTitle</font>
+                        <font>itemTitleSmall</font>
                         <textcolor>selected</textcolor>
 						<autoscroll delay="3000" time="1000" repeat="3000"></autoscroll>
                         <label>$INFO[ListItem.Property(Outlook)]</label>
@@ -104,7 +104,7 @@
                         <width>5-col-gutter</width>
                         <height>1-row</height>
                         <align>center</align>
-                        <font>itemTitleSmall</font>
+                        <font>itemTitleSmallCondensed</font>
                         <textcolor>selected</textcolor>
                         <label>$LOCALIZE[13508] [B]$INFO[ListItem.Property(HighTemp)] $INFO[ListItem.Property(TempUnits)][/B]  $LOCALIZE[418] [B]$INFO[ListItem.Property(LowTemp)] $INFO[ListItem.Property(TempUnits)][/B]</label>
                     </control>
