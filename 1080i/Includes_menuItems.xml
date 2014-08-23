@@ -110,7 +110,7 @@
 			<visible>Library.HasContent(TVShows)</visible>
 		    <label>20343</label>
 		    <label2></label2>
-		    <onclick>activateWindow(Videos,tvshowtitles,return)</onclick>
+		    <onclick>activateWindow(Videos,tvshowgenres,return)</onclick>
 		    <onclick>control.setfocus(50)</onclick>
 		    <onclick>Skin.SetString(showRecentVideoItems,false)</onclick>
 		</item>	
