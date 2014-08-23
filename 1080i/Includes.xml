@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <include file="Defaults.xml" />
     <include file="Includes_grid.xml" />
@@ -100,12 +100,20 @@
                     <colordiffuse>FFFFFFFF</colordiffuse>
                     <aspectratio>stretch</aspectratio>
                 </control>
-                <control type="image">
-                    <include>dimensionsFullscreen</include>
-                    <texture>$INFO[listitem.art(fanart)]</texture>
-                    <colordiffuse>6affffff</colordiffuse>
-                    <aspectratio>stretch</aspectratio>
-                </control>
+        <control type="image">
+          <include>dimensionsFullscreen</include>
+          <visible>isempty(listitem.art(fanart))</visible>
+          <texture>$INFO[skin.string(globalBackground)]</texture>
+          <colordiffuse>6affffff</colordiffuse>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <include>dimensionsFullscreen</include>
+          <visible>!isempty(listitem.art(fanart))</visible>
+          <texture>$INFO[listitem.art(fanart)]</texture>
+          <colordiffuse>6affffff</colordiffuse>
+          <aspectratio>stretch</aspectratio>
+        </control>
             </control>
             <control type="image">
                 <include>dimensionsFullscreen</include>
