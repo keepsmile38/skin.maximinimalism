@@ -447,7 +447,7 @@
                 <effect type="fade" start="0" end="100" time="300" delay="1000" />
             </animation>
             <control type="image">
-                <visible>!Substring(Container.folderpath,plugin)</visible>
+                <visible>!Substring(Container.folderpath,plugin) + !container.content(episodes)</visible>
                 <posx>0</posx>
                 <posy>8</posy>
                 <width>6-col</width>
@@ -457,7 +457,7 @@
                 <fadetime>200</fadetime>
             </control>
             <control type="image">
-                <visible>Substring(Container.folderpath,plugin)</visible>
+                <visible>Substring(Container.folderpath,plugin) | container.content(episodes)</visible>
                 <posx>12-col</posx>
                 <posy>8</posy>
                 <width>9-col-gutter</width>
@@ -465,7 +465,30 @@
                 <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
                 <texture border="0">$INFO[ListItem.thumb]</texture>
                 <fadetime>200</fadetime>
-            </control>
+     	 </control>
+         <control type="label">
+                <visible>container.content(episodes)</visible>
+                <posx>12-col</posx>
+                <posy>7-row</posy>
+                <font>itemTitleSmall</font>
+                <width>9-col-gutter</width>
+                <align>justify</align>
+                <textcolor>selected</textcolor>
+                <height>1-row</height>
+                <label>[B]$INFO[ListItem.Premiered,ONAIR: ][/B]</label>
+         </control>
+         <control type="textbox">
+                <visible>container.content(episodes)</visible>
+                <posx>12-col</posx>
+                <posy>8-row</posy>
+                <font>textboxExtraLeading2</font>
+                <width>9-col-gutter</width>
+                <align>left</align>
+                <textcolor>selected</textcolor>
+                <height>4-row</height>
+                <label>$INFO[ListItem.plot]</label>
+                <autoscroll delay="10000" time="1000" repeat="10000"></autoscroll>
+          </control>
         </control>
         <control type="group">
             <visible>[container.content(files) | container.content(episodes) | Substring(Container.folderpath,plugin)] + !Substring(Container.foldername,TVCatchup)</visible>
@@ -481,126 +504,9 @@
                 <effect type="fade" start="0" end="100" time="300" delay="700" />
             </animation>
             <!--episode list-->
-            <control type="panel" id="52">
-                <visible>container.content(episodes) + !Substring(Container.folderpath,plugin)</visible>
-                <posx>7-col</posx>
-                <posy>4</posy>
-                <width>13-col</width>
-                <height>12-row</height>
-                <onleft>9000</onleft>
-                <onright>60</onright>
-                <pagecontrol>60</pagecontrol>
-                <itemlayout width="13-col" height="1-row">
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>2</posy>
-                        <width>13-col</width>
-                        <height>53</height>
-                        <aspectratio>stretch</aspectratio>
-                        <texture border="24,0,24,0">UIControls/listitemNF.png</texture>
-                        <bordersize>0</bordersize>
-                        <colordiffuse>99FFFFFF</colordiffuse>
-                    </control>
-                    <control type="image">
-                        <posx>3</posx>
-                        <posy>4</posy>
-                        <width>48</width>
-                        <height>48</height>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture fallback="colors/offblack.png" diffuse="masks/circle.png" border="0">$INFO[Listitem.icon]</texture>
-                    </control>
-                    <control type="label">
-                        <posx>60</posx>
-                        <posy>0</posy>
-                        <width>9-col</width>
-                        <font>itemTitle</font>
-                        <textcolor>selected</textcolor>
-                        <shadowcolor>-</shadowcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <visible>!isempty(ListItem.duration)</visible>
-                        <posx>12-col</posx>
-                        <posy>0</posy>
-                        <width>3-col</width>
-                        <font>smallStrong</font>
-                        <textcolor>selected</textcolor>
-                        <align>right</align>
-                        <shadowcolor>-</shadowcolor>
-                        <label>$INFO[ListItem.duration] mins</label>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <visible>!isempty(ListItem.playcount)</visible>
-                        <posx>36r</posx>
-                        <posy>1</posy>
-                        <width>40</width>
-                        <font>symbol</font>
-                        <textcolor>selected</textcolor>
-                        <shadowcolor>-</shadowcolor>
-                        <label></label>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="13-col" height="1-row">
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>2</posy>
-                        <width>13-col</width>
-                        <height>53</height>
-                        <aspectratio>stretch</aspectratio>
-                        <texture border="24,0,24,0">UIControls/listitemFO.png</texture>
-                        <bordersize>0</bordersize>
-                        <colordiffuse>FFFFFFFF</colordiffuse>
-                    </control>
-                    <control type="image">
-                        <posx>3</posx>
-                        <posy>4</posy>
-                        <width>48</width>
-                        <height>48</height>
-                        <aspectratio scalediffuse="false">scale</aspectratio>
-                        <texture fallback="colors/offblack.png" diffuse="masks/circle.png" border="0">$INFO[Listitem.icon]</texture>
-                    </control>
-                    <control type="label">
-                        <posx>60</posx>
-                        <posy>0</posy>
-                        <width>9-col</width>
-                        <font>itemTitle</font>
-                        <textcolor>black</textcolor>
-                        <selectedcolor>black</selectedcolor>
-                        <shadowcolor>-</shadowcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <visible>!isempty(ListItem.duration)</visible>
-                        <posx>12-col</posx>
-                        <posy>0</posy>
-                        <width>3-col</width>
-                        <font>smallStrong</font>
-                        <textcolor>black</textcolor>
-                        <selectedcolor>black</selectedcolor>
-                        <align>right</align>
-                        <shadowcolor>-</shadowcolor>
-                        <label>$INFO[ListItem.duration] mins</label>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <visible>!isempty(ListItem.playcount)</visible>
-                        <posx>36r</posx>
-                        <posy>1</posy>
-                        <width>40</width>
-                        <font>symbol</font>
-                        <textcolor>black</textcolor>
-                        <selectedcolor>black</selectedcolor>
-                        <shadowcolor>-</shadowcolor>
-                        <label></label>
-                    </control>
-                </focusedlayout>
-            </control>
             <!--episode list (plugins)-->
             <control type="panel" id="52">
-                <visible>Substring(Container.folderpath,plugin)</visible>
+                <visible>Substring(Container.folderpath,plugin) | container.content(episodes)</visible>
                 <posx>0</posx>
                 <posy>4</posy>
                 <width>11-col</width>

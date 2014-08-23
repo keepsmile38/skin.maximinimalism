@@ -89,6 +89,13 @@
             <size>30</size>
             <linespacing>1</linespacing>
         </font>
+        <font>
+            <name>textboxExtraLeading2</name>
+            <filename>sourceSansPro/regular.ttf</filename>
+            <size>26</size>
+            <linespacing>1</linespacing>
+            <aspect>0.8</aspect>
+        </font>
 		<font>
             <name>pageTitle</name>
             <filename>sourceSansPro/black.ttf</filename>
