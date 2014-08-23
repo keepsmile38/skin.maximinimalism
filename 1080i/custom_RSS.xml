@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="3005">
+  <zorder>2</zorder>
+  <allowoverlay>no</allowoverlay>
+  <visible>!Window.IsVisible(startup)</visible>
+  <controls>
+    <control type="rss">
+      <posx>0</posx>
+      <posy>0</posy>
+      <height>30</height>
+      <width>1920</width>
+      <font>regular</font>
+      <urlset>1</urlset>
+      <textcolor>selected</textcolor>
+      <titlecolor>selected</titlecolor>
+      <shadowcolor>22000000</shadowcolor>
+      <headlinecolor>selected</headlinecolor>
+      <animation effect="slide" end="0,1014" time="0" condition="Skin.HasSetting(GlobalRSS.Bottom)">Conditional</animation>
+      <visible>!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(screencalibration) + !Window.IsVisible(screensaver) + !Window.IsVisible(slideshow)</visible>
+    </control>
+  </controls>
+</window>
