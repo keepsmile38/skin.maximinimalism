@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">8000</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
@@ -214,6 +214,12 @@
                     <label>31142</label>
                     <onclick>Skin.ToggleSetting(exitFirst)</onclick>
                     <selected>Skin.HasSetting(exitFirst)</selected>
+                </control>
+                <control type="radiobutton" id="20">
+                    <width>16-col</width>
+                    <selected>Skin.HasSetting(KioskMode)</selected>
+                    <onclick>Skin.ToggleSetting(KioskMode)</onclick>
+                    <label>Koisk Mode</label>
                 </control>
 				<control type="radiobutton" id="8">
 					<visible>Container(8000).Hasfocus(2)</visible>
